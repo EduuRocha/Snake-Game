@@ -67,6 +67,9 @@ function move(e){
     counterMovements.innerHTML++
     movements.push(new Movement(snake[0].style.gridRow,snake[0].style.gridColumn))
     //check if apple position and snake are the same, and generate a new apple if so
+    //this is only in the master branch
+
+    //and this is only on the tests branch
     eatApple([row,column],a)
     moveBody()
 
