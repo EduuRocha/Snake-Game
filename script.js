@@ -1,9 +1,8 @@
 let board=document.getElementById('board')
 let snake=document.querySelectorAll('.snake')
-let row=5;
-let column=5;
-snake[0].style.gridRow=row;
-snake[0].style.gridColumn=column;
+
+snake[0].style.gridRow=5;
+snake[0].style.gridColumn=5;
 let counter=document.getElementById('counterApple')
 let counterMovements=document.getElementById('counterMovements')
 let movements=[{
@@ -23,15 +22,15 @@ class Movement{
 
 
 let apple=document.getElementById('apple')
-let a;
+let randomAppleValue;
 generateApple()
 function generateApple(){
-    a= randomApple()
-    const [aRowCoordinate,aColumnCoordinate]=a
+    randomAppleValue= randomApple()
+    const [aRowCoordinate,aColumnCoordinate]=randomAppleValue
     apple.style.gridRow=aRowCoordinate
     apple.style.gridColumn=aColumnCoordinate
 }
-window.addEventListener('keydown',move)
+//window.addEventListener('keydown',move)
 
 function move(e){
     switch(e.key){
@@ -78,11 +77,11 @@ function move(e){
 function randomApple(){
     let aRow=Math.ceil(Math.random()*10)
     let aColumn=Math.ceil(Math.random()*10);
-    if (aRow==row || aRow>9){
+    if (aRow==snake[0].style.gridRow || aRow>9){
        
       aRow= randomApple()[0]
     }
-    if (aColumn==column || aColumn>9){
+    if (aColumn==snake[0].style.gridColumn || aColumn>9){
       
         aColumn= randomApple()[1]
     }
@@ -90,9 +89,12 @@ function randomApple(){
 }
 
 function eatApple(x,y){
-    if (x[0]===y[0] && x[1]===y[1]){
+    if (counter.innerHTML==0){
+        return victory()
+    }   
+    if (x[0]==y[0] && x[1]==y[1]){
         generateApple()
-        counter.innerHTML++
+        counter.innerHTML--
         grow()
     }
 }
@@ -108,9 +110,64 @@ function grow(){
     snakeBody.push(el);
 }
 
+
+
 function moveBody(){
     for (let i=0; i<snakeBody.length;i++){
         snakeBody[i].style.gridColumn=movements[counterMovements.innerHTML-(i+1)].column
         snakeBody[i].style.gridRow=movements[counterMovements.innerHTML-(i+1)].row
     }
+}
+
+
+setInterval(walk,400);
+
+
+let switchControl;
+window.addEventListener('keydown',(e)=>{
+    switchControl=e.key
+})
+function walk(){
+   switch(switchControl){
+       case 'ArrowUp':
+           if( snake[0].style.gridRow>1){
+            snake[0].style.gridRow--
+           }
+           break;
+
+        
+        case 'ArrowDown':
+            if (snake[0].style.gridRow<9){
+                snake[0].style.gridRow++
+            }
+            break;
+        
+        case 'ArrowLeft':
+            if (snake[0].style.gridColumn>1){
+                snake[0].style.gridColumn--
+            }
+            break;
+
+        case 'ArrowRight':
+            if (snake[0].style.gridColumn<9){
+                snake[0].style.gridColumn++
+            }
+            break
+
+        case undefined:
+            if (snake[0].style.gridColumn>1){
+                snake[0].style.gridColumn--
+            }
+            break;
+   }
+   counterMovements.innerHTML++
+   movements.push(new Movement(snake[0].style.gridRow,snake[0].style.gridColumn))
+
+   eatApple([snake[0].style.gridRow,snake[0].style.gridColumn],randomAppleValue)
+   moveBody()
+}
+
+function victory(){
+    //Don't forget to make this a div later, because an alert is horrible
+    alert('Win')
 }
