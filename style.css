@@ -1,0 +1,68 @@
+*{
+    padding:0;
+    margin:0;
+}
+
+body{
+    background-color:black
+}
+
+#board{
+    width:600px;
+    height:600px;
+    border:solid blue 3px;
+    position:absolute;
+    left:calc(50vw - 600px/2);
+    display:grid;
+    grid-template-columns:repeat(9,1fr);
+    grid-template-rows:repeat(9,1fr);
+
+}
+
+.snake{
+    background-color: green;
+}
+
+
+#apple{
+    background-color:red;
+
+}
+
+
+#appleWrap{
+    position:absolute;
+    left:50px;
+    top:50px;
+    width: 300px;
+}
+
+#counterApple{
+    width:200px;
+    height:100px;
+    background-color:white;
+   
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size: 8rem;
+}
+
+#counterMovements{
+    width:200px;
+    height:100px;
+    background-color:white;
+    position:absolute;
+    left:50px;
+    top:300px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size: 8rem;
+}
+
+img{
+    height:100px;
+    position: relative;
+    float:left
+}
