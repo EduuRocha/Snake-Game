@@ -66,3 +66,87 @@ img{
     position: relative;
     float:left
 }
+
+#finalDiv{
+    
+    background-color:rgba(6, 6, 87,0.7);
+    /* height:400px;
+    width:700px; */
+    height:0;
+    width:0;
+    position:absolute;
+    left:calc(50vw - 350px);
+    top:calc(50vh - 200px);
+    display:flex;
+    justify-content: center;
+    z-index: 1;
+    margin-left:350px;
+    margin-right:350px;
+    margin-top:200px;
+    margin-bottom:200px;
+    transition: width 1s ease, height 1s ease, margin 1s;
+}
+
+#winOrlose{
+    background-color:silver;
+    width:42%;
+    height:12.5%;
+    border-radius:10px;
+    position:relative; 
+    top:40px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size: 3rem;
+    display:none
+}
+
+#playAgain{
+    background-color:yellow;
+    width:28.5%;
+    height:12.5%;
+    display:flex;
+    display: none;
+    justify-content:center;
+    align-items:center;
+    font-size: 1rem;
+    border-radius:20px;
+    position: absolute;
+    left:50px;
+    bottom:150px
+}
+
+#playAgain:hover{
+    cursor:pointer;
+}
+
+#score{
+    box-sizing: border-box;
+    width:28.5%;
+    height:25%;
+    background-color:burlywood;
+    position:absolute;
+    right:50px;
+    top:150px;
+    display:none
+}
+
+.scorePlace{
+    border:2px solid black;
+    width:98%;
+    height:48%
+}
+
+.scorePlace:nth-child(2){
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.scorePlace:nth-child(1){
+    border-bottom:none;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
