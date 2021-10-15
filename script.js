@@ -36,6 +36,7 @@ function generateApple(){
 }
 
 <<<<<<< HEAD
+<<<<<<< HEAD
         case 'ArrowDown':
             if (row<9){
                 row++;
@@ -67,6 +68,8 @@ function generateApple(){
     moveBody()
 
 }
+=======
+>>>>>>> cssBranch
 =======
 >>>>>>> cssBranch
 
