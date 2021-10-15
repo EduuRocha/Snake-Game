@@ -35,43 +35,8 @@ function generateApple(){
     apple.style.gridColumn=aColumnCoordinate
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-        case 'ArrowDown':
-            if (row<9){
-                row++;
-                snake[0].style.gridRow=row
-            }
-            break;
 
-        case 'ArrowLeft':
-            if (column>1){
-                column--;
-                snake[0].style.gridColumn=column
-            }
-            break;
 
-            case 'ArrowRight':
-                if (column<9){
-                    column++;
-                    snake[0].style.gridColumn=column
-                }
-                break;
-    }
-    //I will probably have to change this counterMovements when i make the snake walk alone and the player only guide the path
-    counterMovements.innerHTML++
-    movements.push(new Movement(snake[0].style.gridRow,snake[0].style.gridColumn))
-    //check if apple position and snake are the same, and generate a new apple if so
-
-    //this is only in the master branch
-    eatApple([row,column],a)
-    moveBody()
-
-}
-=======
->>>>>>> cssBranch
-=======
->>>>>>> cssBranch
 
 function randomApple(){
     let aRow=Math.ceil(Math.random()*10)
